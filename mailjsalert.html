@@ -1,0 +1,43 @@
+
+<html> 
+    <head>
+        <title></title>
+    </head>
+    <body>
+
+    <button id="alert" class="underline"> Click here to send a mail notification </button>
+
+    </body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script>
+
+        $( "#alert" ).click(function() {
+         $.ajax({
+            type: "POST",
+            url: "https://mandrillapp.com/api/1.0/messages/send.json",
+            data: {
+                'key': 'your_api_key',
+                'message': {
+                    'from_email': 'yourmail@gmail.com',
+                    'to': [
+                        {
+                    'email': 'yourmail@gmail.com',
+                    'name': 'NAME',
+                    'type': 'to'
+                }],
+                'autotext': 'ture',
+                'subject': 'ALERT',
+                'html': 'YOUR EMAIL CONTENT HERE!'
+
+            }
+            }
+         })
+        }
+
+
+        );
+
+
+</script>
